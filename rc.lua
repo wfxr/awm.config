@@ -76,17 +76,17 @@ local exit_screen_theme = exit_screen_themes[2]
 user = {
     -- >> Default applications <<
     -- Check apps.lua for more
-    terminal = "kitty -1",
-    floating_terminal = "kitty -1",
-    browser = "firefox",
+    terminal = "alacritty",
+    floating_terminal = "alacritty",
+    browser = "google-chrome-stable",
     file_manager = "kitty -1 --class files -e ranger",
     editor = "kitty -1 --class editor -e vim",
     email_client = "kitty -1 --class email -e neomutt",
     music_client = "kitty -o font_size=12 --class music -e ncmpcpp",
 
     -- >> Web Search <<
-    web_search_cmd = "xdg-open https://duckduckgo.com/?q=",
-    -- web_search_cmd = "xdg-open https://www.google.com/search?q=",
+    -- web_search_cmd = "xdg-open https://google.com/?q=",
+    web_search_cmd = "xdg-open https://www.google.com/search?q=",
 
     -- >> User profile <<
     profile_picture = os.getenv("HOME").."/.config/awesome/profile.png",
@@ -372,7 +372,7 @@ awful.rules.rules = {
             honor_workarea = true,
             honor_padding = true,
             maximized = false,
-            titlebars_enabled = beautiful.titlebars_enabled,
+            titlebars_enabled = false,
             maximized_horizontal = false,
             maximized_vertical = false,
             placement = floating_client_placement

@@ -201,7 +201,7 @@ keys.globalkeys = gears.table.join(
     --{description = "focus the next screen", group = "screen"}),
     --awful.key({ superkey, ctrlkey }, "k", function () awful.screen.focus_relative(-1) end,
     --{description = "focus the previous screen", group = "screen"}),
-    
+
     -- Urgent or Undo:
     -- Jump to urgent client or (if there is no such client) go back
     -- to the last tag
@@ -224,17 +224,27 @@ keys.globalkeys = gears.table.join(
         {description = "go back", group = "tag"}),
 
     -- Spawn terminal
-    awful.key({ superkey }, "Return", function () awful.spawn(user.terminal) end,
+    awful.key({ ctrlkey }, "grave", function () awful.spawn(user.terminal) end,
         {description = "open a terminal", group = "launcher"}),
     -- Spawn floating terminal
-    awful.key({ superkey, shiftkey }, "Return", function()
+    awful.key({ ctrlkey, shiftkey }, "`", function()
         awful.spawn(user.floating_terminal, {floating = true})
                                                 end,
         {description = "spawn floating terminal", group = "launcher"}),
+    -- Spawn browser
+    awful.key({ superkey }, "w", function () awful.spawn(user.browser) end,
+        {description = "open a browser", group = "launcher"}),
 
     -- Reload Awesome
     awful.key({ superkey, shiftkey }, "r", awesome.restart,
         {description = "reload awesome", group = "awesome"}),
+
+    -- Lock Awesome
+    awful.key({ superkey, ctrlkey, shiftkey }, "l",
+        function ()
+            lock_screen_show()
+        end,
+        {description = "lock awesome", group = "awesome"}),
 
     -- Quit Awesome
     -- Logout, Shutdown, Restart, Suspend, Lock
@@ -255,45 +265,45 @@ keys.globalkeys = gears.table.join(
         {description = "quit awesome", group = "awesome"}),
 
     -- Number of master clients
-    awful.key({ superkey, altkey }, "h",   
-        function () 
-            awful.tag.incnmaster( 1, nil, true) 
+    awful.key({ superkey, altkey }, "h",
+        function ()
+            awful.tag.incnmaster( 1, nil, true)
         end,
         {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ superkey, altkey }, "l",   
-        function () 
-            awful.tag.incnmaster(-1, nil, true) 
+    awful.key({ superkey, altkey }, "l",
+        function ()
+            awful.tag.incnmaster(-1, nil, true)
         end,
         {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ superkey, altkey }, "Left",   
-        function () 
-            awful.tag.incnmaster( 1, nil, true) 
+    awful.key({ superkey, altkey }, "Left",
+        function ()
+            awful.tag.incnmaster( 1, nil, true)
         end,
         {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ superkey, altkey }, "Right",   
-        function () 
-            awful.tag.incnmaster(-1, nil, true) 
+    awful.key({ superkey, altkey }, "Right",
+        function ()
+            awful.tag.incnmaster(-1, nil, true)
         end,
         {description = "decrease the number of master clients", group = "layout"}),
 
     -- Number of columns
-    awful.key({ superkey, altkey }, "k",   
-        function () 
+    awful.key({ superkey, altkey }, "k",
+        function ()
             awful.tag.incncol( 1, nil, true)
         end,
         {description = "increase the number of columns", group = "layout"}),
-    awful.key({ superkey, altkey }, "j",   
-        function () 
+    awful.key({ superkey, altkey }, "j",
+        function ()
             awful.tag.incncol( -1, nil, true)
         end,
         {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ superkey, altkey }, "Up",   
-        function () 
+    awful.key({ superkey, altkey }, "Up",
+        function ()
             awful.tag.incncol( 1, nil, true)
         end,
         {description = "increase the number of columns", group = "layout"}),
-    awful.key({ superkey, altkey }, "Down",   
-        function () 
+    awful.key({ superkey, altkey }, "Down",
+        function ()
             awful.tag.incncol( -1, nil, true)
         end,
         {description = "decrease the number of columns", group = "layout"}),
@@ -406,11 +416,11 @@ keys.globalkeys = gears.table.join(
         {description = "raise volume", group = "volume"}),
 
     -- Microphone (V for voice)
-    awful.key( { superkey }, "v",
-        function()
-            awful.spawn.with_shell("pactl set-source-mute @DEFAULT_SOURCE@ toggle")
-        end,
-        {description = "(un)mute microphone", group = "volume"}),
+    -- awful.key( { superkey }, "v",
+    --     function()
+    --         awful.spawn.with_shell("pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+    --     end,
+    --     {description = "(un)mute microphone", group = "volume"}),
 
     -- Microphone overlay
     awful.key( { superkey, shiftkey }, "v",
@@ -461,19 +471,19 @@ keys.globalkeys = gears.table.join(
     -- Max layout
     -- Single tap: Set max layout
     -- Double tap: Also disable floating for ALL visible clients in the tag
-    awful.key({ superkey }, "w",
-        function()
-            awful.layout.set(awful.layout.suit.max)
-            helpers.single_double_tap(
-                nil,
-                function()
-                    local clients = awful.screen.focused().clients
-                    for _, c in pairs(clients) do
-                        c.floating = false
-                    end
-                end)
-        end,
-        {description = "set max layout", group = "tag"}),
+    -- awful.key({ superkey }, "w",
+    --     function()
+    --         awful.layout.set(awful.layout.suit.max)
+    --         helpers.single_double_tap(
+    --             nil,
+    --             function()
+    --                 local clients = awful.screen.focused().clients
+    --                 for _, c in pairs(clients) do
+    --                     c.floating = false
+    --                 end
+    --             end)
+    --     end,
+    --     {description = "set max layout", group = "tag"}),
     -- Tiling
     -- Single tap: Set tiled layout
     -- Double tap: Also disable floating for ALL visible clients in the tag
@@ -590,7 +600,7 @@ keys.clientkeys = gears.table.join(
         helpers.move_client_dwim(c, "right")
     end),
 
-    -- Single tap: Center client 
+    -- Single tap: Center client
     -- Double tap: Center client + Floating + Resize
     awful.key({ superkey }, "c", function (c)
         awful.placement.centered(c, {honor_workarea = true, honor_padding = true})
@@ -693,7 +703,7 @@ keys.clientkeys = gears.table.join(
         {description = "toggle floating", group = "client"}),
 
     -- Set master
-    awful.key({ superkey, ctrlkey }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ superkey }, "Return", function (c) c:swap(awful.client.getmaster()) end,
         {description = "move to master", group = "client"}),
 
     -- Change client opacity
