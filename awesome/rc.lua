@@ -1142,5 +1142,13 @@ client.connect_signal("mouse::enter",
         end
     end)
 
+-- hide status bar
+for s in screen do
+    s.mywibox.visible = false
+    if s.mybottomwibox then
+        s.mybottomwibox.visible = false
+    end
+end
+
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
