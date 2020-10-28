@@ -249,7 +249,7 @@ screen_height = awful.screen.focused().geometry.height
 -- ===================================================================
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
     awful.layout.suit.floating,
     -- awful.layout.suit.max,
     --awful.layout.suit.spiral,
@@ -306,15 +306,15 @@ awful.screen.connect_for_each_screen(function(s)
     local l = awful.layout.suit -- Alias to save time :)
     -- Tag layouts
     local layouts = {
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
+        l.tile.left,
+        l.tile.left,
+        l.tile.left,
+        l.tile.left,
+        l.tile.left,
+        l.tile.left,
+        l.tile.left,
+        l.tile.left,
+        l.tile.left,
         l.floating
     }
 
@@ -842,21 +842,20 @@ awful.rules.rules = {
     -- Start application on specific workspace --
     ---------------------------------------------
     -- Browsing
-    {
-        rule_any = {
-            class = {
-                "firefox",
-                "Nightly",
-                -- "qutebrowser",
-            },
-        },
-        except_any = {
-            role = { "GtkFileChooserDialog" },
-            instance = { "Toolkit" },
-            type = { "dialog" }
-        },
-        properties = { screen = 1, tag = awful.screen.focused().tags[1] },
-    },
+    -- {
+    --     rule_any = {
+    --         class = {
+    --             "firefox",
+    --             "google-chrome-stable",
+    --         },
+    --     },
+    --     except_any = {
+    --         role     = { "GtkFileChooserDialog" },
+    --         instance = { "Toolkit"              },
+    --         type     = { "dialog"               }
+    --     },
+    --     properties = { screen = 1, tag = awful.screen.focused().tags[1] },
+    -- },
 
     -- Games
     {
@@ -902,7 +901,7 @@ awful.rules.rules = {
                 "6cord",
             },
         },
-        properties = { screen = 1, tag = awful.screen.focused().tags[3] }
+        properties = { screen = screen.count(), tag = awful.screen.focused().tags[2] }
     },
 
     -- Editing
