@@ -330,7 +330,8 @@ keys.globalkeys = gears.table.join(
     -- Run program (d for dmenu ;)
     awful.key({ superkey }, "d",
         function()
-            awful.spawn.with_shell("rofi -matching fuzzy -show combi")
+            awful.spawn.with_shell("rofi -modi run,drun -show drun -matching fuzzy")
+            -- awful.spawn.with_shell("rofi -matching fuzzy -show combi")
         end,
         {description = "rofi launcher", group = "launcher"}),
 
@@ -543,9 +544,19 @@ keys.globalkeys = gears.table.join(
     awful.key({ superkey }, "grave", function() sidebar_toggle() end,
         {description = "show or hide sidebar", group = "awesome"}),
     -- Toggle wibar(s)
-    awful.key({ superkey }, "b", function() wibars_toggle() end,
-        {description = "show or hide wibar(s)", group = "awesome"}),
+    -- awful.key({ superkey }, "b", function() wibars_toggle() end,
+    --     {description = "show or hide wibar(s)", group = "awesome"}),
     -- Emacs (O for org mode)
+    -- Toggle Wibox (topbar)
+    awful.key({ superkey }, "b", function ()
+            for s in screen do
+                s.mywibox.visible = not s.mywibox.visible
+                if s.mybottomwibox then
+                    s.mybottomwibox.visible = not s.mybottomwibox.visible
+                end
+            end
+        end,
+        {description = "toggle wibox", group = "awesome"}),
     awful.key({ superkey }, "o", apps.org,
         {description = "emacs", group = "launcher"}),
     -- Markdown input scratchpad (I for input)

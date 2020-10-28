@@ -19,7 +19,7 @@ local themes = {
     "amarena",      -- 5 --
 }
 -- Change this number to use a different theme
-local theme = themes[5]
+local theme = themes[3]
 -- ===================================================================
 -- Affects the window appearance: titlebar, titlebar buttons...
 local decoration_themes = {
@@ -37,7 +37,7 @@ local bar_themes = {
     "ephemeral",    -- 4 -- Taglist, start button, tasklist, and more buttons
     "amarena",      -- 5 -- Minimal taglist and dock with autohide
 }
-local bar_theme = bar_themes[5]
+local bar_theme = bar_themes[4]
 
 -- ===================================================================
 -- Affects which icon theme will be used by widgets that display image icons.
@@ -58,7 +58,7 @@ local sidebar_themes = {
     "lovelace",       -- 1 -- Uses image icons
     "amarena",        -- 2 -- Text-only (consumes less RAM)
 }
-local sidebar_theme = sidebar_themes[2]
+local sidebar_theme = sidebar_themes[1]
 -- ===================================================================
 local dashboard_themes = {
     "skyfall",        -- 1 --
@@ -135,7 +135,7 @@ user = {
     -- >> Coronavirus <<
     -- Country to check for corona statistics
     -- Uses the https://corona-stats.online API
-    coronavirus_country = "",
+    coronavirus_country = "china",
 }
 -- ===================================================================
 
@@ -251,7 +251,7 @@ screen_height = awful.screen.focused().geometry.height
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.floating,
-    awful.layout.suit.max,
+    -- awful.layout.suit.max,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.tile.top,
@@ -306,16 +306,16 @@ awful.screen.connect_for_each_screen(function(s)
     local l = awful.layout.suit -- Alias to save time :)
     -- Tag layouts
     local layouts = {
-        l.max,
-        l.max,
-        l.max,
-        l.max,
         l.tile,
-        l.max,
-        l.max,
-        l.max,
         l.tile,
-        l.max
+        l.tile,
+        l.tile,
+        l.tile,
+        l.tile,
+        l.tile,
+        l.tile,
+        l.tile,
+        l.floating
     }
 
     -- Tag names
