@@ -1133,5 +1133,14 @@ end)
 -- collectgarbage("setpause", 160)
 -- collectgarbage("setstepmul", 400)
 
+-- focus window on mouse hover
+client.connect_signal("mouse::enter",
+    function(c)
+        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+            and awful.client.focus.filter(c) then
+            client.focus = c
+        end
+    end)
+
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
