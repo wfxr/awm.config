@@ -127,15 +127,15 @@ user = {
     -- Get your key and find your city id at
     -- https://openweathermap.org/
     -- (You will need to make an account!)
-    openweathermap_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    openweathermap_city_id = "yyyyyy",
+    openweathermap_key = os.getenv("OPENWEATHERMAP_KEY") or "",
+    openweathermap_city_id = "1816670",
     -- > Use "metric" for Celcius, "imperial" for Fahrenheit
     weather_units = "metric",
 
     -- >> Coronavirus <<
     -- Country to check for corona statistics
     -- Uses the https://corona-stats.online API
-    coronavirus_country = "germany",
+    coronavirus_country = "",
 }
 -- ===================================================================
 
