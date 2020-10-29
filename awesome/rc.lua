@@ -414,6 +414,11 @@ awful.rules.rules = {
         },
         properties = { floating = true }
     },
+    {
+        rule = { class = "jetbrains-.*" },
+        rule = { name = "win0" },
+        properties = { floating = true }
+    },
 
     -- TODO why does Chromium always start up floating in AwesomeWM?
     -- Temporary fix until I figure it out
@@ -901,7 +906,7 @@ awful.rules.rules = {
                 "6cord",
             },
         },
-        properties = { screen = screen.count(), tag = awful.screen.focused().tags[2] }
+        properties = { screen = 1, tag = awful.screen.focused().tags[2] }
     },
 
     -- Editing
@@ -991,6 +996,7 @@ awful.rules.rules = {
     },
 
 }
+
 -- (Rules end here) ..................................................
 -- ===================================================================
 
