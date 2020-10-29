@@ -906,7 +906,7 @@ awful.rules.rules = {
                 "6cord",
             },
         },
-        properties = { screen = 1, tag = awful.screen.focused().tags[2] }
+        properties = { screen = screen.count(), tag = screen[screen.count()].tags[2] }
     },
 
     -- Editing
