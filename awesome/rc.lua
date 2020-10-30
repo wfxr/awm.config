@@ -183,6 +183,10 @@ local naughty = require("naughty")
 -- Load theme
 local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/" .. theme .. "/"
 beautiful.init(theme_dir .. "theme.lua")
+beautiful.useless_gap = 12
+beautiful.border_width = dpi(2)
+beautiful.border_focus = "#de9d63"
+beautiful.border_normal = "#5A5A55"
 
 -- Error handling
 -- ===================================================================
@@ -580,7 +584,7 @@ awful.rules.rules = {
                 "URxvt",
             },
         },
-        properties = { width = screen_width * 0.45, height = screen_height * 0.5 }
+        properties = { border_width = 0, width = screen_width * 0.45, height = screen_height * 0.5 }
     },
 
     -- Visualizer
