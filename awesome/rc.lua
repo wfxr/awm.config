@@ -421,7 +421,7 @@ awful.rules.rules = {
     {
         rule = { class = "jetbrains-.*" },
         rule = { name = "win0" },
-        properties = { floating = true }
+        properties = { floating = true, border_width = 0 }
     },
 
     -- TODO why does Chromium always start up floating in AwesomeWM?
