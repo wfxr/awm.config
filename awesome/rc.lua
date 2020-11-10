@@ -999,6 +999,19 @@ awful.rules.rules = {
         properties = { screen = 1, tag = awful.screen.focused().tags[10] }
     },
 
+    -- wechat
+    {
+        rule_any = {
+            class = {
+                "wechat*",
+            },
+        },
+        properties = {
+            border_width = 0,
+            screen = screen.count(),
+            tag = screen[screen.count()].tags[1],
+        }
+    },
 }
 
 -- (Rules end here) ..................................................
