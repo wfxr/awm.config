@@ -228,8 +228,17 @@ local function grab_password()
 end
 
 function lock_screen_show()
-    set_visibility(true) 
+    lock_keyring()
+    set_visibility(true)
     grab_password()
+end
+
+function lock_keyring()
+    awful.spawn.easy_async_with_shell("command -v gnome-keyring-daemon >/dev/null 2>&1", function (_, __, ___, exitcode)
+        if exitcode == 0 then
+            awful.util.spawn('gnome-keyring-daemon -rc secrets')
+        end
+    end)
 end
 
 -- Item placement
