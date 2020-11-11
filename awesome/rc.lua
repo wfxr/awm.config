@@ -1158,7 +1158,7 @@ end)
 -- focus window on mouse hover
 client.connect_signal("mouse::enter",
     function(c)
-        if not client.focus.floating and
+        if (client.focus and not client.focus.floating) and
             awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
             client.focus = c
