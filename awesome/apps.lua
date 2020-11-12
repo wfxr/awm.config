@@ -16,20 +16,13 @@ apps.file_manager = function ()
     awful.spawn(user.file_manager, { floating = true })
 end
 apps.telegram = function ()
-    helpers.run_or_raise({class = 'TelegramDesktop'}, false, "telegram", { switchtotag = true })
+    helpers.run_or_raise({class = 'TelegramDesktop'}, false, "telegram-desktop", { switchtotag = true })
 end
 apps.discord = function ()
-    -- Run or raise Discord running in the browser, spawned with Chromium browser's app mode
-    -- >> Ubuntu / Debian
-    -- helpers.run_or_raise({instance = 'discordapp.com__channels_@me'}, false, "chromium-browser --app=\"https://discordapp.com/channels/@me\"")
-    -- >> Arch
-    helpers.run_or_raise({instance = 'discordapp.com__channels_@me'}, false, "chromium --app=\"https://discordapp.com/channels/@me\"")
-
-    -- Run or raise Discord app
-    -- helpers.run_or_raise({class = 'discord'}, false, "discord")
+    helpers.run_or_raise({instance = 'discordapp.com__channels_@me'}, false, user.browser.." --app=\"https://discordapp.com/channels/@me\"")
 end
-apps.weechat = function ()
-    helpers.run_or_raise({instance = 'weechat'}, true, user.terminal.." --class weechat -e weechat")
+apps.wechat = function ()
+    helpers.run_or_raise({instance = 'wechat'}, true, user.browser.." https://web.wechat.com")
 end
 apps.mail = function ()
     helpers.run_or_raise({instance = 'email'}, false, user.email_client, {switchtotag = true})
@@ -40,20 +33,26 @@ end
 apps.steam = function ()
     helpers.run_or_raise({class = 'Steam'}, false, "steam")
 end
-apps.lutris = function ()
-    helpers.run_or_raise({class = 'Lutris'}, false, "lutris")
+apps.github = function ()
+    helpers.run_or_raise({instance = 'github'}, true, user.browser.." https://github.com")
 end
 apps.youtube = function ()
-    awful.spawn.with_shell("rofi_mpvtube")
+    helpers.run_or_raise({instance = 'youtube'}, true, user.browser.." https://www.youtube.com")
 end
 apps.networks = function ()
-    awful.spawn.with_shell("rofi_networks")
+    helpers.run_or_raise({instance = 'network'}, true, user.terminal.." --class network -e nmtui")
+end
+apps.gfw = function ()
+    awful.spawn.with_shell("xdg-open http://127.0.0.1:2017")
+end
+apps.bilibili = function ()
+    awful.spawn.with_shell("xdg-open https://bilibili.com")
 end
 apps.passwords = function ()
-    helpers.run_or_raise({class = 'KeePassXC'}, true, "keepassxc")
+    helpers.run_or_raise({class = 'seahorse'}, true, "seahorse")
 end
 apps.volume = function ()
-    helpers.run_or_raise({class = 'Pavucontrol'}, true, "pavucontrol")
+    helpers.run_or_raise({class = 'Pavucontrol'}, true, "sh -c 'pavucontrol-qt || pavucontrol'")
 end
 apps.torrent = function ()
     helpers.run_or_raise({instance = 'torrent'}, true, user.terminal.." --class torrent -e transmission-remote-cli")
@@ -65,7 +64,7 @@ end
 
 -- Toggle compositor
 apps.compositor = function ()
-    awful.spawn.with_shell("sh -c 'pgrep picom > /dev/null && pkill picom || picom --experimental-backends --config ~/.config/picom/picom.conf & disown'")
+    awful.spawn.with_shell("sh -c 'pkill picom || picom --experimental-backends -b'")
 end
 
 local night_mode_notif
@@ -90,9 +89,8 @@ apps.record = function ()
     awful.spawn.with_shell("screenrec.sh")
 end
 
--- I only use emacs for org mode :)
-apps.org = function ()
-    helpers.run_or_raise({class = 'Emacs'}, false, "emacs")
+apps.edorgitor = function ()
+    helpers.run_or_raise({class = 'editor'}, false, user.editor)
 end
 
 apps.music = function ()

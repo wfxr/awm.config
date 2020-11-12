@@ -19,6 +19,7 @@ yay -S --noconfirm \
     pulseaudio \
     inotify-tools \
     xdotool \
+    nerd-fonts-jetbrains-mono \
     acpid # battery
 
 mkdir -p ~/.local/share/fonts

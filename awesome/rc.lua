@@ -76,13 +76,13 @@ local exit_screen_theme = exit_screen_themes[2]
 user = {
     -- >> Default applications <<
     -- Check apps.lua for more
-    terminal = "alacritty",
+    terminal          = "alacritty",
     floating_terminal = "alacritty",
-    browser = "google-chrome-stable",
-    file_manager = "kitty -1 --class files -e ranger",
-    editor = "kitty -1 --class editor -e vim",
-    email_client = "kitty -1 --class email -e neomutt",
-    music_client = "kitty -o font_size=12 --class music -e ncmpcpp",
+    browser           = "google-chrome-stable",
+    file_manager      = "alacritty --class files -e ranger",
+    editor            = "alacritty --class editor -e sh -c 'sleep 0.1; nvim'",
+    email_client      = "mailspring",
+    music_client      = "alacritty --class music -o font.size=14 -e sh -c 'sleep 0.1; ncmpcpp'",
 
     -- >> Web Search <<
     -- web_search_cmd = "xdg-open https://google.com/?q=",
@@ -93,19 +93,17 @@ user = {
 
     -- Directories with fallback values
     dirs = {
-        downloads = os.getenv("XDG_DOWNLOAD_DIR") or "~/Downloads",
-        documents = os.getenv("XDG_DOCUMENTS_DIR") or "~/Documents",
-        music = os.getenv("XDG_MUSIC_DIR") or "~/Music",
-        pictures = os.getenv("XDG_PICTURES_DIR") or "~/Pictures",
-        videos = os.getenv("XDG_VIDEOS_DIR") or "~/Videos",
-        -- Make sure the directory exists so that your screenshots
-        -- are not lost
+        downloads   = os.getenv("XDG_DOWNLOAD_DIR")    or "~/Downloads",
+        documents   = os.getenv("XDG_DOCUMENTS_DIR")   or "~/Documents",
+        music       = os.getenv("XDG_MUSIC_DIR")       or "~/Music",
+        pictures    = os.getenv("XDG_PICTURES_DIR")    or "~/Pictures",
+        videos      = os.getenv("XDG_VIDEOS_DIR")      or "~/Videos",
         screenshots = os.getenv("XDG_SCREENSHOTS_DIR") or "~/Pictures/Screenshots",
     },
 
     -- >> Sidebar <<
     sidebar = {
-        hide_on_mouse_leave = true,
+        hide_on_mouse_leave       = true,
         show_on_mouse_screen_edge = true,
     },
 
