@@ -182,7 +182,8 @@ local naughty = require("naughty")
 local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/" .. theme .. "/"
 beautiful.init(theme_dir .. "theme.lua")
 beautiful.useless_gap = 12
-beautiful.border_width = dpi(2)
+-- beautiful.border_width = dpi(2)
+beautiful.border_width = 0
 beautiful.border_focus = "#de9d63"
 beautiful.border_normal = "#5A5A55"
 
@@ -207,8 +208,8 @@ local keys = require("keys")
 local notifications = require("notifications")
 notifications.init(notification_theme)
 -- Load window decoration theme and custom decorations
-local decorations = require("decorations")
-decorations.init(decoration_theme)
+-- local decorations = require("decorations")
+-- decorations.init(decoration_theme)
 -- Load helper functions
 local helpers = require("helpers")
 
@@ -493,60 +494,60 @@ awful.rules.rules = {
     },
 
     -- Titlebars OFF (explicitly)
-    {
-        rule_any = {
-            instance = {
-                "install league of legends (riot client live).exe",
-                "gw2-64.exe",
-                "battle.net.exe",
-                "riotclientservices.exe",
-                "leagueclientux.exe",
-                "riotclientux.exe",
-                "leagueclient.exe",
-                "^editor$",
-                "markdown_input"
-            },
-            class = {
-                "qutebrowser",
-                "Sublime_text",
-                "Subl3",
-                --"discord",
-                --"TelegramDesktop",
-                "firefox",
-                "Nightly",
-                "Steam",
-                "Lutris",
-                "Chromium",
-                "^editor$",
-                "markdown_input"
-                -- "Thunderbird",
-            },
-            type = {
-              "splash"
-            },
-            name = {
-                "^discord.com is sharing your screen.$" -- Discord (running in browser) screen sharing popup
-            }
-        },
-        callback = function(c)
-            decorations.hide(c)
-        end
-    },
+    -- {
+    --     rule_any = {
+    --         instance = {
+    --             "install league of legends (riot client live).exe",
+    --             "gw2-64.exe",
+    --             "battle.net.exe",
+    --             "riotclientservices.exe",
+    --             "leagueclientux.exe",
+    --             "riotclientux.exe",
+    --             "leagueclient.exe",
+    --             "^editor$",
+    --             "markdown_input"
+    --         },
+    --         class = {
+    --             "qutebrowser",
+    --             "Sublime_text",
+    --             "Subl3",
+    --             --"discord",
+    --             --"TelegramDesktop",
+    --             "firefox",
+    --             "Nightly",
+    --             "Steam",
+    --             "Lutris",
+    --             "Chromium",
+    --             "^editor$",
+    --             "markdown_input"
+    --             -- "Thunderbird",
+    --         },
+    --         type = {
+    --           "splash"
+    --         },
+    --         name = {
+    --             "^discord.com is sharing your screen.$" -- Discord (running in browser) screen sharing popup
+    --         }
+    --     },
+    --     callback = function(c)
+    --         decorations.hide(c)
+    --     end
+    -- },
 
     -- Titlebars ON (explicitly)
-    {
-        rule_any = {
-            type = {
-                "dialog",
-            },
-            role = {
-                "conversation",
-            }
-        },
-        callback = function(c)
-            decorations.show(c)
-        end
-    },
+    -- {
+    --     rule_any = {
+    --         type = {
+    --             "dialog",
+    --         },
+    --         role = {
+    --             "conversation",
+    --         }
+    --     },
+    --     callback = function(c)
+    --         decorations.show(c)
+    --     end
+    -- },
 
     -- "Needy": Clients that steal focus when they are urgent
     -- {

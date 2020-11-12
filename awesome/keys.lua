@@ -81,6 +81,13 @@ keys.desktopbuttons = gears.table.join(
 
 -- {{{ Key bindings
 keys.globalkeys = gears.table.join(
+    awful.key({ superkey }, "0", nil,
+        function ()
+            if app_drawer_show then
+                app_drawer_show()
+            end
+        end,
+        {description = "show apps", group = "client"}),
     -- Focus client by direction (hjkl keys)
     awful.key({ superkey }, "j",
         function()
@@ -490,7 +497,7 @@ keys.globalkeys = gears.table.join(
     -- Double tap: Also disable floating for ALL visible clients in the tag
     awful.key({ superkey }, "s",
         function()
-            awful.layout.set(awful.layout.suit.tile)
+            awful.layout.set(awful.layout.suit.tile.left)
             helpers.single_double_tap(
                 nil,
                 function()
@@ -770,7 +777,7 @@ keys.clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-local ntags = 10
+local ntags = 9
 for i = 1, ntags do
     keys.globalkeys = gears.table.join(keys.globalkeys,
         -- View tag only.
