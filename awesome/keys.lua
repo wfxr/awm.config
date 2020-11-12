@@ -56,8 +56,8 @@ keys.desktopbuttons = gears.table.join(
     end),
 
     -- Scrolling - Switch tags
-    awful.button({ }, 4, awful.tag.viewprev),
-    awful.button({ }, 5, awful.tag.viewnext),
+    -- awful.button({ }, 4, awful.tag.viewprev),
+    -- awful.button({ }, 5, awful.tag.viewnext),
 
     -- Side buttons - Control volume
     awful.button({ }, 9, function () helpers.volume_control(5) end),
@@ -452,14 +452,14 @@ keys.globalkeys = gears.table.join(
         {description = "next song", group = "media"}),
     awful.key({ superkey }, "comma", function() awful.spawn.with_shell("mpc -q prev") end,
         {description = "previous song", group = "media"}),
-    awful.key({ superkey }, "space", function() awful.spawn.with_shell("mpc -q toggle") end,
-        {description = "toggle pause/play", group = "media"}),
+    -- awful.key({ superkey }, "space", function() awful.spawn.with_shell("mpc -q toggle") end,
+    --     {description = "toggle pause/play", group = "media"}),
     awful.key({ superkey, shiftkey }, "period", function() awful.spawn.with_shell("mpvc next") end,
         {description = "mpv next song", group = "media"}),
     awful.key({ superkey, shiftkey }, "comma", function() awful.spawn.with_shell("mpvc prev") end,
         {description = "mpv previous song", group = "media"}),
-    awful.key({ superkey, shiftkey}, "space", function() awful.spawn.with_shell("mpvc toggle") end,
-        {description = "mpv toggle pause/play", group = "media"}),
+    -- awful.key({ superkey, shiftkey}, "space", function() awful.spawn.with_shell("mpvc toggle") end,
+    --     {description = "mpv toggle pause/play", group = "media"}),
 
     awful.key({ superkey }, "F8", function() awful.spawn.with_shell("mpvc quit") end,
         {description = "mpv quit", group = "media"}),
@@ -707,7 +707,7 @@ keys.clientkeys = gears.table.join(
         {description = "close", group = "client"}),
 
     -- Toggle floating
-    awful.key({ superkey, ctrlkey }, "space",
+    awful.key({ superkey }, "space",
         function(c)
             local layout_is_floating = (awful.layout.get(mouse.screen) == awful.layout.suit.floating)
             if not layout_is_floating then
