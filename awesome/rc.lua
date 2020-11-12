@@ -19,7 +19,7 @@ local themes = {
     "amarena",      -- 5 --
 }
 -- Change this number to use a different theme
-local theme = themes[3]
+local theme = themes[4]
 -- ===================================================================
 -- Affects the window appearance: titlebar, titlebar buttons...
 local decoration_themes = {
@@ -45,7 +45,7 @@ local icon_themes = {
     "linebit",        -- 1 -- Neon + outline
     "drops",          -- 2 -- Pastel + filled
 }
-local icon_theme = icon_themes[2]
+local icon_theme = icon_themes[1]
 -- ===================================================================
 local notification_themes = {
     "lovelace",       -- 1 -- Plain with standard image icons
