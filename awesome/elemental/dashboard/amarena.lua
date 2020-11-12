@@ -29,7 +29,8 @@ awful.screen.connect_for_each_screen(function(s)
     if s == screen.primary then
         s.dashboard = dashboard
     else
-        s.dashboard = helpers.screen_mask(s, dashboard.bg)
+        -- s.dashboard = helpers.screen_mask(s, dashboard.bg)
+        s.dashboard = helpers.screen_mask(s, beautiful.lock_screen_bg or beautiful.exit_screen_bg or x.background)
     end
 end)
 

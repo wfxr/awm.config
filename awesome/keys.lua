@@ -459,8 +459,8 @@ keys.globalkeys = gears.table.join(
         {description = "next song", group = "media"}),
     awful.key({ superkey }, "comma", function() awful.spawn.with_shell("mpc -q prev") end,
         {description = "previous song", group = "media"}),
-    -- awful.key({ superkey }, "space", function() awful.spawn.with_shell("mpc -q toggle") end,
-    --     {description = "toggle pause/play", group = "media"}),
+    awful.key({ superkey }, "p", function() awful.spawn.with_shell("mpc -q toggle") end,
+        {description = "toggle pause/play", group = "media"}),
     awful.key({ superkey, shiftkey }, "period", function() awful.spawn.with_shell("mpvc next") end,
         {description = "mpv next song", group = "media"}),
     awful.key({ superkey, shiftkey }, "comma", function() awful.spawn.with_shell("mpvc prev") end,
@@ -583,15 +583,15 @@ keys.globalkeys = gears.table.join(
             awful.spawn.with_shell("rofi_edit")
         end,
         {description = "quick edit file", group = "launcher"}),
+    -- Process monitor
+    -- awful.key({ superkey }, "p", apps.process_monitor,
+    --     {description = "process monitor", group = "launcher"}),
     -- Rofi youtube search and playlist selector
     awful.key({ superkey }, "y", apps.youtube,
         {description = "youtube search and play", group = "launcher"}),
     -- Spawn file manager
     awful.key({ superkey, shiftkey }, "f", apps.file_manager,
-        {description = "file manager", group = "launcher"}),
-    -- Process monitor
-    awful.key({ superkey }, "p", apps.process_monitor,
-        {description = "process monitor", group = "launcher"})
+        {description = "file manager", group = "launcher"})
 )
 
 keys.clientkeys = gears.table.join(
