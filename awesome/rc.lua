@@ -422,6 +422,10 @@ awful.rules.rules = {
         rule = { name = "win0" },
         properties = { floating = true, border_width = 0 }
     },
+    {
+        rule = { class = "jetbrains-idea" },
+        properties = { screen = 1, tag = screen[1].tags[2] }
+    },
 
     -- TODO why does Chromium always start up floating in AwesomeWM?
     -- Temporary fix until I figure it out
@@ -1001,9 +1005,8 @@ awful.rules.rules = {
     -- wechat
     {
         rule_any = {
-            class = {
-                "wechat*",
-            },
+            class = { "wechat*" },
+            name = { "WeChat*" }
         },
         properties = {
             border_width = 0,
