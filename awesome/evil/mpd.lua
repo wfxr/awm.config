@@ -10,7 +10,10 @@
 --      random (boolean)
 local awful = require("awful")
 
-local function emit_info()
+local mpd = {}
+
+-- callback(artist, title, paused)
+function mpd_info(callback)
     awful.spawn.easy_async_with_shell("sh -c 'mpc -f ARTIST@%artist%@TITLE@%title%@FILE@%file%@'",
         function(stdout)
             local artist = stdout:match('^ARTIST@(.*)@TITLE')
@@ -33,10 +36,17 @@ local function emit_info()
             else
                 paused = true
             end
-
-            awesome.emit_signal("evil::mpd", artist, title, paused)
+            if callback then
+                callback(artist, title, paused)
+            end
         end
     )
+end
+
+local function emit_info()
+    mpd_info(function(artist, title, paused)
+        awesome.emit_signal("evil::mpd", artist, title, paused)
+    end)
 end
 
 -- Run once to initialize widgets
@@ -119,3 +129,6 @@ awful.spawn.easy_async_with_shell("ps x | grep \"mpc idleloop options\" | grep -
         end
     })
 end)
+
+mpd.mpd_info = mpd_info
+return mpd

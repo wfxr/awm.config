@@ -9,6 +9,8 @@ local helpers = require("helpers")
 
 local keys = {}
 
+local local_status = {}
+
 -- Mod keys
 superkey = "Mod4"
 altkey = "Mod1"
@@ -81,7 +83,28 @@ keys.desktopbuttons = gears.table.join(
 
 -- {{{ Key bindings
 keys.globalkeys = gears.table.join(
-    awful.key({ superkey }, "0", nil,
+    awful.key({ superkey }, "m",
+        function ()
+            require("evil.mpd").mpd_info(function(artist, title, paused)
+                local notif = local_status.mpd_notif
+                if notif and not notif.is_expired then
+                    notif:destroy()
+                    notif = nil
+                else
+                    notif = require("notifications").notify_dwim(
+                        {
+                            title = "Now playing:",
+                            message = "<b>"..title.."</b> by <b>"..artist.."</b>",
+                            icon = require("icons").image.music,
+                            app_name = "mpd"
+                        },
+                        notif)
+                end
+                local_status.mpd_notif = notif
+            end)
+        end,
+        {description = "show apps", group = "client"}),
+    awful.key({ superkey }, "Escape",
         function ()
             if app_drawer_show then
                 app_drawer_show()
@@ -260,7 +283,7 @@ keys.globalkeys = gears.table.join(
             exit_screen_show()
         end,
         {description = "quit awesome", group = "awesome"}),
-    awful.key({ superkey }, "Escape",
+    awful.key({ superkey, shiftkey }, "Escape",
         function ()
             exit_screen_show()
         end,
@@ -755,11 +778,11 @@ keys.clientkeys = gears.table.join(
         {description = "minimize", group = "client"}),
 
     -- Maximize
-    awful.key({ superkey,           }, "m",
-        function (c)
-            c.maximized = not c.maximized
-        end,
-        {description = "(un)maximize", group = "client"}),
+    -- awful.key({ superkey,           }, "m",
+    --     function (c)
+    --         c.maximized = not c.maximized
+    --     end,
+    --     {description = "(un)maximize", group = "client"}),
     awful.key({ superkey, ctrlkey }, "m",
         function (c)
             c.maximized_vertical = not c.maximized_vertical
