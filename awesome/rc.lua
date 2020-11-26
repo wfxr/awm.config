@@ -184,8 +184,19 @@ beautiful.init(theme_dir .. "theme.lua")
 beautiful.useless_gap = 12
 -- beautiful.border_width = dpi(2)
 beautiful.border_width = 0
-beautiful.border_focus = "#de9d63"
-beautiful.border_normal = "#5A5A55"
+beautiful.border_focus = x.color2
+-- beautiful.border_normal = x.color8
+
+beautiful.titlebars_enabled = true
+beautiful.titlebar_size = dpi(2)
+beautiful.titlebar_title_enabled = false
+beautiful.titlebar_font = "sans bold 9"
+-- Window title alignment: left, right, center
+beautiful.titlebar_title_align = "center"
+beautiful.titlebar_position = "top"
+beautiful.titlebar_bg = x.color0
+beautiful.titlebar_bg_focus = x.color2
+beautiful.titlebar_bg_normal = x.color8
 
 -- Error handling
 -- ===================================================================
@@ -208,8 +219,8 @@ local keys = require("keys")
 local notifications = require("notifications")
 notifications.init(notification_theme)
 -- Load window decoration theme and custom decorations
--- local decorations = require("decorations")
--- decorations.init(decoration_theme)
+local decorations = require("decorations")
+decorations.init(decoration_theme)
 -- Load helper functions
 local helpers = require("helpers")
 
@@ -375,7 +386,7 @@ awful.rules.rules = {
             honor_workarea = true,
             honor_padding = true,
             maximized = false,
-            titlebars_enabled = false,
+            titlebars_enabled = beautiful.titlebars_enabled,
             maximized_horizontal = false,
             maximized_vertical = false,
             placement = floating_client_placement
