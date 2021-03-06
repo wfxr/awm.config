@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 SDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) && cd "$SDIR"
 
-yay -S --noconfirm \
+paru -S --noconfirm \
     awesome-git \
     rofi \
     lm_sensors \
@@ -20,7 +20,8 @@ yay -S --noconfirm \
     inotify-tools \
     xdotool \
     nerd-fonts-jetbrains-mono \
-    acpid # battery
+    acpid \ # battery
+    nitrogen
 
 mkdir -p ~/.local/share/fonts
 cp -r ./fonts/* ~/.local/share/fonts
