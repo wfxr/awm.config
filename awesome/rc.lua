@@ -303,7 +303,7 @@ local function set_wallpaper(s)
         -- awful.spawn.with_shell(os.getenv("HOME") .. "/.fehbg")
 
         -- >> Method 4: Set last wallpaper with nitrogen
-        awful.spawn.with_shell("nitrogen --restore")
+        -- awful.spawn.with_shell("nitrogen --restore")
     end
 end
 
