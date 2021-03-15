@@ -181,7 +181,7 @@ local naughty = require("naughty")
 -- Load theme
 local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/" .. theme .. "/"
 beautiful.init(theme_dir .. "theme.lua")
-beautiful.useless_gap = 12
+beautiful.useless_gap = dpi(4)
 -- beautiful.border_width = dpi(2)
 beautiful.border_width = 0
 beautiful.border_focus = x.color2
