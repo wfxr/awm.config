@@ -198,6 +198,7 @@ beautiful.titlebar_bg = x.color0
 beautiful.titlebar_bg_focus = x.color2
 beautiful.titlebar_bg_normal = x.color8
 
+beautiful.sidebar_position = "right"
 -- Error handling
 -- ===================================================================
 naughty.connect_signal("request::display_error", function(message, startup)
