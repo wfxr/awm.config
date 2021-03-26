@@ -364,7 +364,11 @@ keys.globalkeys = gears.table.join(
             -- awful.spawn.with_shell("rofi -matching fuzzy -show combi")
         end,
         {description = "rofi launcher", group = "launcher"}),
-
+    awful.key({ ctrlkey }, ";",
+        function()
+            awful.spawn.with_shell("rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
+        end,
+        {description = "rofi-greenclip launcher", group = "launcher"}),
     -- Run
     awful.key({ superkey }, "r",
         function ()
