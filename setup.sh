@@ -7,6 +7,7 @@ SDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) && cd "$SDIR"
 paru -S --noconfirm \
     awesome-git \
     rofi \
+    rofi-greenclip \
     lm_sensors \
     jq \
     fortune-mod \
@@ -20,8 +21,8 @@ paru -S --noconfirm \
     inotify-tools \
     xdotool \
     nerd-fonts-jetbrains-mono \
-    acpid \ # battery
-    nitrogen
+    acpid \
+    nitrogen \
 
 mkdir -p ~/.local/share/fonts
 cp -r ./fonts/* ~/.local/share/fonts
