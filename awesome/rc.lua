@@ -76,13 +76,19 @@ local exit_screen_theme = exit_screen_themes[2]
 user = {
     -- >> Default applications <<
     -- Check apps.lua for more
-    terminal          = "alacritty",
-    floating_terminal = "alacritty",
     browser           = "google-chrome-stable",
-    file_manager      = "alacritty --class files -e ranger",
-    editor            = "alacritty --class editor -e sh -c 'sleep 0.1; nvim'",
     email_client      = "mailspring",
-    music_client      = "alacritty --class music -o font.size=14 -e sh -c 'sleep 0.1; ncmpcpp'",
+    -- terminal          = "alacritty",
+    -- floating_terminal = "alacritty",
+    -- file_manager      = "alacritty --class files -e ranger",
+    -- editor            = "alacritty --class editor -e sh -c 'sleep 0.1; nvim'",
+    -- music_client      = "alacritty --class music -o font.size=14 -e sh -c 'sleep 0.1; ncmpcpp'",
+    terminal          = "kitty -1",
+    floating_terminal = "kitty -1",
+    file_manager      = "kitty -1 --class files -e ranger",
+    editor            = "kitty -1 --class editor -e nvim",
+    email_client      = "kitty -1 --class email -e neomutt",
+    music_client      = "kitty -o font_size=12 --class music -e ncmpcpp",
 
     -- >> Web Search <<
     -- web_search_cmd = "xdg-open https://google.com/?q=",
