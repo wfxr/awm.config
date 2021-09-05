@@ -7,35 +7,28 @@ SDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd) && cd "$SDIR"
 CONF=~/.config/awesome
 mkdir -p ~/.config
 
-read -n1 -rp "$CONF will be removed. Continue? [y/N] " res; echo
-[[ ! $res =~ y|Y ]] && exit 1
-
 rm -rf "$CONF"
 ln -s "$SDIR/awesome" "$CONF"
 
-read -n1 -rp "Install dependencies? [y/N] " res; echo
-if [[ $res =~ y|Y ]]; then
-    paru -S --noconfirm \
-        awesome-git \
-        rofi \
-        rofi-greenclip \
-        lm_sensors \
-        jq \
-        fortune-mod \
-        redshift \
-        mpd \
-        mpc \
-        maim \
-        feh \
-        light-git \
-        pulseaudio \
-        inotify-tools \
-        xdotool \
-        nerd-fonts-jetbrains-mono \
-        acpid \
-        nitrogen \
-
-fi
+paru -S --noconfirm \
+    awesome-git \
+    rofi \
+    rofi-greenclip \
+    lm_sensors \
+    jq \
+    fortune-mod \
+    redshift \
+    mpd \
+    mpc \
+    maim \
+    feh \
+    light-git \
+    pulseaudio \
+    inotify-tools \
+    xdotool \
+    nerd-fonts-jetbrains-mono \
+    acpid \
+    nitrogen \
 
 mkdir -p ~/.local/share/fonts
 cp -r ./fonts/* ~/.local/share/fonts
