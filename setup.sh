@@ -14,29 +14,29 @@ rm -rf "$CONF"
 ln -s "$SDIR/awesome" "$CONF"
 
 read -n1 -rp "Install dependencies? [y/N] " res; echo
-[[ ! $res =~ y|Y ]] && exit 1
+if [[ $res =~ y|Y ]]; then
+    paru -S --noconfirm \
+        awesome-git \
+        rofi \
+        rofi-greenclip \
+        lm_sensors \
+        jq \
+        fortune-mod \
+        redshift \
+        mpd \
+        mpc \
+        maim \
+        feh \
+        light-git \
+        pulseaudio \
+        inotify-tools \
+        xdotool \
+        nerd-fonts-jetbrains-mono \
+        acpid \
+        nitrogen \
 
-paru -S --noconfirm \
-    awesome-git \
-    rofi \
-    rofi-greenclip \
-    lm_sensors \
-    jq \
-    fortune-mod \
-    redshift \
-    mpd \
-    mpc \
-    maim \
-    feh \
-    light-git \
-    pulseaudio \
-    inotify-tools \
-    xdotool \
-    nerd-fonts-jetbrains-mono \
-    acpid \
-    nitrogen \
+fi
 
 mkdir -p ~/.local/share/fonts
 cp -r ./fonts/* ~/.local/share/fonts
-
 fc-cache -fv
