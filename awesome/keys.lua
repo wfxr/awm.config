@@ -389,12 +389,12 @@ keys.globalkeys = gears.table.join(
         {description = "activate sidebar web search prompt", group = "awesome"}),
 
     -- Dismiss notifications and elements that connect to the dismiss signal
-    awful.key( { ctrlkey }, "space",
-        function()
-            awesome.emit_signal("elemental::dismiss")
-            naughty.destroy_all_notifications()
-        end,
-        {description = "dismiss notification", group = "notifications"}),
+    -- awful.key( { ctrlkey }, "space",
+    --     function()
+    --         awesome.emit_signal("elemental::dismiss")
+    --         naughty.destroy_all_notifications()
+    --     end,
+    --     {description = "dismiss notification", group = "notifications"}),
 
     -- Menubar
     --awful.key({ superkey, ctrlkey }, "b", function() menubar.show() end,
