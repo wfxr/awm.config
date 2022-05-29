@@ -254,7 +254,7 @@ keys.globalkeys = gears.table.join(
         {description = "go back", group = "tag"}),
 
     -- Spawn terminal
-    awful.key({ ctrlkey }, "grave", function () awful.spawn(user.terminal) end,
+    awful.key({ superkey }, "grave", function () awful.spawn(user.terminal) end,
         {description = "open a terminal", group = "launcher"}),
     -- Spawn floating terminal
     awful.key({ ctrlkey, shiftkey }, "`", function()
@@ -269,12 +269,9 @@ keys.globalkeys = gears.table.join(
     awful.key({ superkey, shiftkey }, "r", awesome.restart,
         {description = "reload awesome", group = "awesome"}),
 
-    -- Lock Awesome
-    awful.key({ superkey, ctrlkey, shiftkey }, "l",
-        function ()
-            lock_screen_show()
-        end,
-        {description = "lock awesome", group = "awesome"}),
+    -- Lock screen
+    awful.key({ superkey, shiftkey }, "l", function() lock_screen_show() end,
+        {description = "lock screen", group = "awesome"}),
 
     -- Quit Awesome
     -- Logout, Shutdown, Restart, Suspend, Lock
@@ -577,9 +574,6 @@ keys.globalkeys = gears.table.join(
     -- Toggle sidebar
     awful.key({ superkey }, "\\", function() sidebar_toggle() end,
         {description = "show or hide sidebar", group = "awesome"}),
-    -- Lock screen
-    awful.key({ superkey }, "grave", function() lock_screen_show() end,
-        {description = "lock screen", group = "awesome"}),
     -- Toggle wibar(s)
     -- awful.key({ superkey }, "b", function() wibars_toggle() end,
     --     {description = "show or hide wibar(s)", group = "awesome"}),
