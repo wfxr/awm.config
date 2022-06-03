@@ -83,11 +83,11 @@ user = {
     -- file_manager      = "alacritty --class files -e ranger",
     -- editor            = "alacritty --class editor -e sh -c 'sleep 0.1; nvim'",
     -- music_client      = "alacritty --class music -o font.size=14 -e sh -c 'sleep 0.1; ncmpcpp'",
-    terminal          = "kitty -1",
-    floating_terminal = "kitty -1",
-    file_manager      = "kitty -1 --class files -e ranger",
-    editor            = "kitty -1 --class editor -e nvim",
-    email_client      = "kitty -1 --class email -e neomutt",
+    terminal          = "wezterm",
+    floating_terminal = "wezterm",
+    file_manager      = "wezterm start --class files  -- ranger",
+    editor            = "wezterm start --class editor -- nvim",
+    -- email_client      = "wezterm start --class email  -- neomutt",
     music_client      = "kitty -o font_size=12 --class music -e ncmpcpp",
 
     -- >> Web Search <<

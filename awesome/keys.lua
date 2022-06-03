@@ -352,13 +352,14 @@ keys.globalkeys = gears.table.join(
         {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    --awful.key({ superkey },            "d",     function () awful.screen.focused().mypromptbox:run() end,
-    --{description = "run prompt", group = "launcher"}),
-    -- Run program (d for dmenu ;)
     awful.key({ superkey }, "d",
         function()
             awful.spawn.with_shell("rofi -modi run,drun -show drun -matching fuzzy")
-            -- awful.spawn.with_shell("rofi -matching fuzzy -show combi")
+        end,
+        {description = "rofi launcher", group = "launcher"}),
+    awful.key({ altkey }, "space",
+        function()
+            awful.spawn.with_shell("rofi -modi run,drun -show drun -matching fuzzy")
         end,
         {description = "rofi launcher", group = "launcher"}),
     awful.key({ ctrlkey }, ";",
@@ -644,14 +645,14 @@ keys.clientkeys = gears.table.join(
 
     -- Single tap: Center client
     -- Double tap: Center client + Floating + Resize
-    awful.key({ superkey }, "c", function (c)
-        awful.placement.centered(c, {honor_workarea = true, honor_padding = true})
-        helpers.single_double_tap(
-            nil,
-            function ()
-                helpers.float_and_resize(c, screen_width * 0.65, screen_height * 0.9)
-            end)
-    end),
+    -- awful.key({ superkey }, "c", function (c)
+    --     awful.placement.centered(c, {honor_workarea = true, honor_padding = true})
+    --     helpers.single_double_tap(
+    --         nil,
+    --         function ()
+    --             helpers.float_and_resize(c, screen_width * 0.65, screen_height * 0.9)
+    --         end)
+    -- end),
 
     -- Relative move client
     awful.key({ superkey, shiftkey, ctrlkey }, "j", function (c)
