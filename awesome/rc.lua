@@ -78,17 +78,24 @@ user = {
     -- Check apps.lua for more
     browser           = "google-chrome-stable",
     email_client      = "mailspring",
+
     -- terminal          = "alacritty",
     -- floating_terminal = "alacritty",
     -- file_manager      = "alacritty --class files -e ranger",
     -- editor            = "alacritty --class editor -e sh -c 'sleep 0.1; nvim'",
     -- music_client      = "alacritty --class music -o font.size=14 -e sh -c 'sleep 0.1; ncmpcpp'",
-    terminal          = "wezterm",
-    floating_terminal = "wezterm",
-    file_manager      = "wezterm start --class files  -- ranger",
-    editor            = "wezterm start --class editor -- nvim",
-    -- email_client      = "wezterm start --class email  -- neomutt",
+
+    terminal          = "kitty -1",
+    floating_terminal = "kitty -1",
+    file_manager      = "kitty -1 --class files -e ranger",
+    editor            = "kitty -1 --class editor -e nvim",
     music_client      = "kitty -o font_size=12 --class music -e ncmpcpp",
+
+    -- terminal          = "wezterm",
+    -- floating_terminal = "wezterm",
+    -- file_manager      = "wezterm start --class files  -- ranger",
+    -- editor            = "wezterm start --class editor -- nvim",
+
 
     -- >> Web Search <<
     -- web_search_cmd = "xdg-open https://google.com/?q=",
