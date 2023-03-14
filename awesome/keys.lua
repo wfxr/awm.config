@@ -57,13 +57,13 @@ keys.desktopbuttons = gears.table.join(
         end
     end),
 
-    -- Scrolling - Switch tags
-    -- awful.button({ }, 4, awful.tag.viewprev),
-    -- awful.button({ }, 5, awful.tag.viewnext),
+    -- Side buttons - Switch tags
+    awful.button({ }, 9, awful.tag.viewprev),
+    awful.button({ }, 8, awful.tag.viewnext)
 
     -- Side buttons - Control volume
-    awful.button({ }, 9, function () helpers.volume_control(5) end),
-    awful.button({ }, 8, function () helpers.volume_control(-5) end)
+    -- awful.button({ }, 9, function () helpers.volume_control(5) end),
+    -- awful.button({ }, 8, function () helpers.volume_control(-5) end)
 
     -- Side buttons - Minimize and restore minimized client
     -- awful.button({ }, 8, function()
@@ -877,12 +877,12 @@ keys.clientbuttons = gears.table.join(
     end),
 
     -- Super + scroll = Change client opacity
-    awful.button({ superkey }, 4, function(c)
-        c.opacity = c.opacity + 0.1
-    end),
-    awful.button({ superkey }, 5, function(c)
-        c.opacity = c.opacity - 0.1
-    end)
+    awful.button({ superkey }, 4, function(c) c.opacity = c.opacity + 0.1 end),
+    awful.button({ superkey }, 5, function(c) c.opacity = c.opacity - 0.1 end),
+
+    -- Side buttons - Switch tags
+    awful.button({ }, 9, function(t) awful.tag.viewprev(t.screen) end),
+    awful.button({ }, 8, function(t) awful.tag.viewnext(t.screen) end)
 )
 
 -- Mouse buttons on the tasklist
