@@ -433,8 +433,9 @@ awful.rules.rules = {
             name = {
                 "Event Tester",  -- xev
                 "MetaMask Notification",
-                "飞书会议", -- lark
-                "图片", -- lark
+                "飞书会议",  -- lark
+                "图片",      -- lark
+                "Ozone X11", -- lark
             },
             role = {
                 "AlarmWindow",
