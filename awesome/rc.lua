@@ -345,12 +345,11 @@ awful.screen.connect_for_each_screen(function(s)
         l.tile.left,
         l.tile.left,
         l.tile.left,
-        l.tile.left,
         l.floating
     }
 
     -- Tag names
-    local tagnames = beautiful.tagnames or { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }
+    local tagnames = beautiful.tagnames or { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
     -- Create all tags at once (without seperate configuration for each tag)
     awful.tag(tagnames, s, layouts)
 
@@ -429,6 +428,7 @@ awful.rules.rules = {
                 "fst",
                 "Nvidia-settings",
                 "Nitrogen",
+                "VirtualBox Manager",
             },
             name = {
                 "Event Tester",  -- xev
@@ -1031,7 +1031,7 @@ awful.rules.rules = {
         except_any = {
             type = { "dialog" }
         },
-        properties = { screen = 1, tag = awful.screen.focused().tags[10] }
+        properties = { screen = 1, tag = awful.screen.focused().tags[9] }
     },
 
     -- wechat
