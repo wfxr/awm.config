@@ -335,21 +335,19 @@ screen.connect_signal("property::geometry", set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     local l = awful.layout.suit -- Alias to save time :)
+
     -- Tag layouts
-    local layouts = {
-        l.tile.left,
-        l.tile.left,
-        l.tile.left,
-        l.tile.left,
-        l.tile.left,
-        l.tile.left,
-        l.tile.left,
-        l.tile.left,
-        l.floating
-    }
+    local tile
+    if s.geometry.width >= s.geometry.height then
+        tile = l.tile.left
+    else
+        tile = l.tile.top
+    end
+    local layouts = { tile, tile, tile, tile, tile, tile, tile, tile, l.floating }
 
     -- Tag names
-    local tagnames = beautiful.tagnames or { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+    -- local tagnames = beautiful.tagnames or { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+    local tagnames = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
     -- Create all tags at once (without seperate configuration for each tag)
     awful.tag(tagnames, s, layouts)
 
