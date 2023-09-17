@@ -83,27 +83,27 @@ keys.desktopbuttons = gears.table.join(
 
 -- {{{ Key bindings
 keys.globalkeys = gears.table.join(
-    awful.key({ superkey }, "m",
-        function ()
-            require("evil.mpd").mpd_info(function(artist, title, paused)
-                local notif = local_status.mpd_notif
-                if notif and not notif.is_expired then
-                    notif:destroy()
-                    notif = nil
-                else
-                    notif = require("notifications").notify_dwim(
-                        {
-                            title = "Now playing:",
-                            message = "<b>"..title.."</b> by <b>"..artist.."</b>",
-                            icon = require("icons").image.music,
-                            app_name = "mpd"
-                        },
-                        notif)
-                end
-                local_status.mpd_notif = notif
-            end)
-        end,
-        {description = "show apps", group = "client"}),
+    -- awful.key({ superkey }, "m",
+    --     function ()
+    --         require("evil.mpd").mpd_info(function(artist, title, paused)
+    --             local notif = local_status.mpd_notif
+    --             if notif and not notif.is_expired then
+    --                 notif:destroy()
+    --                 notif = nil
+    --             else
+    --                 notif = require("notifications").notify_dwim(
+    --                     {
+    --                         title = "Now playing:",
+    --                         message = "<b>"..title.."</b> by <b>"..artist.."</b>",
+    --                         icon = require("icons").image.music,
+    --                         app_name = "mpd"
+    --                     },
+    --                     notif)
+    --             end
+    --             local_status.mpd_notif = notif
+    --         end)
+    --     end,
+    --     {description = "show apps", group = "client"}),
     awful.key({ superkey }, "Escape",
         function ()
             if app_drawer_show then
