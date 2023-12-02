@@ -643,17 +643,6 @@ keys.clientkeys = gears.table.join(
         helpers.move_client_dwim(c, "right")
     end),
 
-    -- Single tap: Center client
-    -- Double tap: Center client + Floating + Resize
-    -- awful.key({ superkey }, "c", function (c)
-    --     awful.placement.centered(c, {honor_workarea = true, honor_padding = true})
-    --     helpers.single_double_tap(
-    --         nil,
-    --         function ()
-    --             helpers.float_and_resize(c, screen_width * 0.65, screen_height * 0.9)
-    --         end)
-    -- end),
-
     -- Relative move client
     awful.key({ superkey, shiftkey, ctrlkey }, "j", function (c)
         c:relative_move(0,  dpi(20), 0, 0)
@@ -806,13 +795,13 @@ for i = 1, ntags do
         awful.key({ superkey }, "#" .. i + 9,
             function ()
                 -- Tag back and forth
-                helpers.tag_back_and_forth(i)
+                -- helpers.tag_back_and_forth(i)
 
                 -- Simple tag view
-                -- local tag = mouse.screen.tags[i]
-                -- if tag then
-                -- tag:view_only()
-                -- end
+                local tag = mouse.screen.tags[i]
+                if tag then
+                  tag:view_only()
+                end
             end,
             {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.

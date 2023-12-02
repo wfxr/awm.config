@@ -898,6 +898,16 @@ awful.rules.rules = {
     --     },
     --     properties = { screen = 1, tag = awful.screen.focused().tags[1] },
     -- },
+  {
+    rule = {
+      class = "Firefox"
+    },
+    properties = {
+      opacity = 1,
+      maximized = false,
+      floating = false
+    }
+  },
 
     -- Games
     {
@@ -931,8 +941,8 @@ awful.rules.rules = {
     {
         rule_any = {
             class = {
-                "Chromium",
-                "Chromium-browser",
+                -- "Chromium",
+                -- "Chromium-browser",
                 "discord",
                 "TelegramDesktop",
                 "Signal",
