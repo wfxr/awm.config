@@ -899,8 +899,11 @@ awful.rules.rules = {
     --     properties = { screen = 1, tag = awful.screen.focused().tags[1] },
     -- },
   {
-    rule = {
-      class = "Firefox"
+    rule_any = {
+      class = {
+        "Firefox",
+        "firefox",
+      }
     },
     properties = {
       opacity = 1,

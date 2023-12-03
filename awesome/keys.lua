@@ -766,11 +766,11 @@ keys.clientkeys = gears.table.join(
         {description = "minimize", group = "client"}),
 
     -- Maximize
-    -- awful.key({ superkey,           }, "m",
-    --     function (c)
-    --         c.maximized = not c.maximized
-    --     end,
-    --     {description = "(un)maximize", group = "client"}),
+    awful.key({ superkey,           }, "m",
+        function (c)
+            c.maximized = not c.maximized
+        end,
+        {description = "(un)maximize", group = "client"}),
     awful.key({ superkey, ctrlkey }, "m",
         function (c)
             c.maximized_vertical = not c.maximized_vertical
