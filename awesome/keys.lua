@@ -499,7 +499,7 @@ keys.globalkeys = gears.table.join(
         {description = "send STOP signal to all firefox processes", group = "other"}),
     awful.key({ superkey, shiftkey }, "F7", function() awful.spawn.with_shell("freeze -u firefox") end,
         {description = "send CONT signal to all firefox processes", group = "other"}),
-    awful.key({ superkey }, "q", function() apps.scratchpad() end,
+    awful.key({ superkey, shiftkey }, "q", function() apps.scratchpad() end,
         {description = "scratchpad", group = "launcher"}),
     -- Max layout
     -- Single tap: Set max layout
@@ -719,7 +719,7 @@ keys.clientkeys = gears.table.join(
         {description = "normal mode", group = "client"}),
 
     -- Close client
-    awful.key({ superkey, shiftkey   }, "q",      function (c) c:kill() end,
+    awful.key({ superkey }, "q",      function (c) c:kill() end,
         {description = "close", group = "client"}),
     awful.key({ altkey }, "F4",      function (c) c:kill() end,
         {description = "close", group = "client"}),
