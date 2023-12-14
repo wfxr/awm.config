@@ -254,10 +254,10 @@ keys.globalkeys = gears.table.join(
         {description = "go back", group = "tag"}),
 
     -- Spawn terminal
-    awful.key({ superkey }, "grave", function () awful.spawn(user.terminal) end,
+    awful.key({ superkey }, "\\", function () awful.spawn(user.terminal) end,
         {description = "open a terminal", group = "launcher"}),
     -- Spawn floating terminal
-    awful.key({ ctrlkey, shiftkey }, "`", function()
+    awful.key({ ctrlkey, shiftkey }, "\\", function()
         awful.spawn(user.floating_terminal, {floating = true})
                                                 end,
         {description = "spawn floating terminal", group = "launcher"}),
@@ -573,7 +573,7 @@ keys.globalkeys = gears.table.join(
     awful.key({ superkey }, "F11", function() awful.spawn("networks-rofi") end,
         {description = "spawn network dialog", group = "launcher"}),
     -- Toggle sidebar
-    awful.key({ superkey }, "\\", function() sidebar_toggle() end,
+    awful.key({ superkey }, "`", function() sidebar_toggle() end,
         {description = "show or hide sidebar", group = "awesome"}),
     -- Toggle wibar(s)
     -- awful.key({ superkey }, "b", function() wibars_toggle() end,
