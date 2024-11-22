@@ -76,8 +76,8 @@ local exit_screen_theme = exit_screen_themes[2]
 user = {
     -- >> Default applications <<
     -- Check apps.lua for more
-    -- browser           = "google-chrome-stable",
-    browser           = "firefox",
+    browser           = "google-chrome-stable",
+    -- browser           = "firefox",
     email_client      = "mailspring",
 
     -- terminal          = "alacritty",
